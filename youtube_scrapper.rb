@@ -10,7 +10,7 @@ file = File.open(download_list_file_path)
 videos_urls = JSON.parse(file.read)["urls"]
 file.close
 videos_urls.each do |videos_url|
-  doc = Nokogiri::HTML(open("http://keepvid.com/?url=#{videos_url}"))
+  doc = Nokogiri::HTML(open("https://keepvid.com/?url=#{videos_url}"))
   table_body = doc.xpath('//tbody')
   video_table_body = table_body[0]
   video_rows = video_table_body.xpath('//tr')
